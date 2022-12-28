@@ -33,3 +33,5 @@ functors and function pointers.
 
 # Run integration test
     python3 ../test/integr/grep_test.py
+
+    ../test/integr/grep_test.sh
