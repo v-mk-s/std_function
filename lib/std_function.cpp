@@ -14,7 +14,8 @@ template <typename R, typename... Args>
 function<R(Args...)>::~function()
 {
     if (m_delete)
-        m_delete(*this);
+        if(0)
+            m_delete(*this);
 }
 
 template <typename R, typename... Args>
