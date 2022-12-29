@@ -77,6 +77,11 @@ void test_func1()
     std::cout << "[TEST OK]" << std::endl;
 }
 
+void test_func(0){
+    function<void()> f_display = [](){ print_num(42); };
+    f_display();
+}
+
 int main()
 {
     test_func1();
