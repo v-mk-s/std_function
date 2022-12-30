@@ -25,4 +25,10 @@ cassert
 -
 stdexcept
 -
+gtest/gtest.h
+-
+vector
+-
+algo.hpp
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/o_2semester/2-multithreaded programming in C_С_plus/1-lectures_HW/n0_code/hw1/repo/std_function/test/unit/algo.hpp
 

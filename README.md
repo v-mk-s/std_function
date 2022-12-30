@@ -25,13 +25,26 @@ functors and function pointers.
 1) The implementation is based on the standard C++20 std::function implementation
 2) To be continued
 
- # Setup and run
+
+Build
+------------
     mkdir tmp
     cd tmp
     cmake ..
     make
+    make std_function_test
+    make std_function
+------------
 
-# Run integration test
-    python3 ../test/integr/grep_test.py
+Run unit tests
+------------
+    ./test/unit/std_function_test
+------------
 
-    ../test/integr/grep_test.sh
+Run integration tests
+------------
+    cd ..
+    ./test/integr/test.sh
+    # (not working) .././test/integr/test.sh
+    # (Optional) Integration tests are run from the project's root directory
+------------

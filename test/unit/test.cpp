@@ -21,7 +21,7 @@ void test_func2()
 
     // assert(f_display == print_num);
 
-    std::cout << "[TEST OK]" << std::endl;
+    std::cout << "[TEST 2 OK]" << std::endl;
 }
 
 void test_func1()
@@ -74,17 +74,89 @@ void test_func1()
     //     return fac(n);
     // };
 
-    std::cout << "[TEST OK]" << std::endl;
+    std::cout << "[TEST 1 OK]" << std::endl;
 }
 
+// весь код работает выше без MakeFile
+// с Makefile -> undefined reference
+
+/*
+    /usr/bin/ld: CMakeFiles/std_function_test.dir/test.cpp.o: in function `test_func0()':
+    test.cpp:(.text+0xba): undefined reference to `function<void ()>::operator()() const'
+    /usr/bin/ld: test.cpp:(.text+0xc6): undefined reference to `function<void ()>::~function()'
+    /usr/bin/ld: test.cpp:(.text+0xeb): undefined reference to `function<void ()>::~function()'
+    collect2: error: ld returned 1 exit status
+    make[2]: *** [test/unit/CMakeFiles/std_function_test.dir/build.make:85: test/unit/std_function_test] Error 1
+    make[1]: *** [CMakeFiles/Makefile2:190: test/unit/CMakeFiles/std_function_test.dir/all] Error 2
+    make: *** [Makefile:84: all] Error 2
+*/
 void test_func0(){
-    function<void()> f_display = [](){ print_num(42); };
-    f_display();
+// function<void()> f_display = [](){ print_num(42); };
+// f_display();
 }
 
 int main()
 {
+    test_func0();
     test_func1();
     test_func2();
     return 0;
 }
+
+/*
+#include <gtest/gtest.h>
+#include <vector>
+#include "algo.hpp"
+
+class GreaterZero {
+public:
+    bool operator()(int a) {
+        return a > 0;
+    }
+};
+
+TEST(TestAlgo, all_of) {
+    std::vector <int> a(3);
+    a[0] = 1;
+    a[1] = 2;
+    a[2] = 3;
+    ASSERT_TRUE(cust_all_of(a.begin(), a.end(), GreaterZero()));
+    a[0] = -1;
+    ASSERT_FALSE(cust_all_of(a.begin(), a.end(), GreaterZero()));
+}
+
+TEST(TestAlgo, any_of) {
+    std::vector <int> a(3);
+    a[0] = -1;
+    a[1] = 2;
+    a[2] = 3;
+    ASSERT_TRUE(cust_any_of(a.begin(), a.end(), GreaterZero()));
+    a[1] = -1;
+    a[2] = -1;
+    ASSERT_FALSE(cust_any_of(a.begin(), a.end(), GreaterZero()));
+}
+
+
+TEST(TestAlgo, none_of) {
+    std::vector <int> a(3);
+    a[0] = -1;
+    a[1] = -2;
+    a[2] = -3;
+    ASSERT_TRUE(cust_none_of(a.begin(), a.end(), GreaterZero()));
+    a[0] = 1;
+    ASSERT_FALSE(cust_none_of(a.begin(), a.end(), GreaterZero()));
+}
+
+TEST(TestAlgo, count) {
+    std::vector <int> a(3);
+    a[0] = -1;
+    a[1] = -2;
+    a[2] = -3;
+    ASSERT_EQ(cust_count(a.begin(), a.end(), 1), 0);
+    a[0] = 1;
+    a[2] = 1;
+    ASSERT_EQ(cust_count(a.begin(), a.end(), 1), 2);
+}
+
+TEST(TestAlgo, count_if) {
+*/
