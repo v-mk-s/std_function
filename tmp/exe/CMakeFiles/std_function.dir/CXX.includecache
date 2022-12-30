@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../include/std_function.h
+functional
+-
+iostream
+-
+type_traits
+-
+utility
+-
+stdexcept
+-
+
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/o_2semester/2-multithreaded programming in C_С_plus/1-lectures_HW/n0_code/hw1/repo/std_function/exe/main.cpp
+std_function.h
+/mnt/e/_Vladik/6-Mail_Technopark/3-ML-developer/o_2semester/2-multithreaded programming in C_С_plus/1-lectures_HW/n0_code/hw1/repo/std_function/exe/std_function.h
+iostream
+-
+fstream
+-
+vector
+-
+string
+-
+
